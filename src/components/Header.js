@@ -1,15 +1,22 @@
+import NavButton from './NavButton';
+
 const Header = () => {
     return(
         <div style = {divStyle}>
-            <header>   
-                <h1>Hi!</h1>
+            <header>
+                <div class='grid-container'>
+                    <div class='grid-item'> <h1>LOGO</h1> </div>
+                    <div class='grid-item'> <NavButton name={'About Me'} color={'orange'}/> </div>
+                    <div class='grid-item'> <NavButton name={'Projects'} color={'orange'}/> </div>
+                    <div class='grid-item'> <NavButton name={'Contact'} color={'orange'}/> </div>
+                </div>
             </header>
         </div>
     )
 };
 
-var divStyle = {
-    padding: "20px",
+const divStyle = {
+    padding: '20px',
 };
 
 export default Header;

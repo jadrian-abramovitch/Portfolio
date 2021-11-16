@@ -1,8 +1,18 @@
 import propTypes from 'prop-types';
 
-const NavButton = ({ name, color }) => {
+const NavButton = ({ name, color, link }) => {
+    const buttonStyle = {
+        backgroundColor: color,
+        border: 'none',
+        cursor: 'pointer'
+    };
+
+    const actionEvent = () => {
+        alert('hi');
+    };
+
     return(
-        <button style={{backgroundColor: color}}>
+        <button style={buttonStyle} onClick={actionEvent}>
             {name}
         </button>
     );

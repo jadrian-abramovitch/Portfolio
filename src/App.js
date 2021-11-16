@@ -1,15 +1,12 @@
 import './App.css';
 import Header from './components/Header';
-import NavButton from './components/NavButton';
+import TextBox from './components/TextBox';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <NavButton name={'HOME'} color={'blue'}/>
-        <p>
-          Hi Im Jadrian!
-        </p>
+      <TextBox />
     </div>
   );
 }
