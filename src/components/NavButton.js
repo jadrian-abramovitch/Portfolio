@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavButton = ({ name, color, link }) => {
     const buttonStyle = {
