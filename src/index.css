@@ -14,7 +14,7 @@ code {
 
 Header {
   color: black;
-  background-color: blue;
+  background-color: #C44B4F;
   padding: 10px;
 }
 
@@ -27,4 +27,8 @@ Header {
 
 .grid-item {
   background-color: black;
+}
+
+h5 {
+  color: green;
 }

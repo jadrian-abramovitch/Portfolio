@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" >
-          <TextBox />
+          <TextBox color={'#CBCDCB'}/>
         </Route>
         <Route path="/projects">
           <Projects />

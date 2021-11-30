@@ -1,19 +1,21 @@
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
-const NavButton = ({ name, color, link }) => {
+const NavButton = ({ name, color, link, backgroundColor }) => {
     const buttonStyle = {
-        backgroundColor: color,
+        backgroundColor: backgroundColor,
+        color: color,
         border: 'none',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        padding: '2px',
+        textDecoration: 'none'
     };
 
     return(
-        <Link to={link}>
-            <button style={buttonStyle}>
-                {name}
-            </button>
-        </Link>
+        <h5>
+            <a style={buttonStyle} href={link}>
+                {name} 
+            </a>
+        </h5>
     );
 };
 
@@ -26,6 +28,7 @@ NavButton.propTypes = {
     name: propTypes.string,
     color: propTypes.string,
     link: propTypes.string,
+    backgroundColor: propTypes.string,
 };
 
 export default NavButton;
