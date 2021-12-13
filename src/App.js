@@ -3,6 +3,7 @@ import Header from './components/Header';
 import TextBox from './components/TextBox';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Blog from './components/Blog';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="/blog">
+          <Blog />
         </Route>
       </div>
     </Router>
