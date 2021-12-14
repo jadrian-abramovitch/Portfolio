@@ -4,10 +4,11 @@ const NavButton = ({ name, color, link, backgroundColor }) => {
     const buttonStyle = {
         backgroundColor: backgroundColor,
         color: color,
-        border: 'none',
         cursor: 'pointer',
-        padding: '2px',
-        textDecoration: 'none'
+        padding: '4px',
+        textDecoration: 'none',
+        borderRadius: '4px',
+        border: '1px solid black'
     };
 
     return(

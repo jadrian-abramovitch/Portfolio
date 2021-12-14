@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './components/Header';
 import TextBox from './components/TextBox';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Blog from './components/Blog';
+import Projects from './views/Projects';
+import Contact from './views/Contact';
+import Blog from './views/Blog';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {

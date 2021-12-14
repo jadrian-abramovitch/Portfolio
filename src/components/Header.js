@@ -1,13 +1,14 @@
 import NavButton from './NavButton';
+import logo from '../static/logo.png'
 
 const Header = () => {
     return(
-        <div style = {divStyle}>
-            <header>
+        <div style={divStyle}>
+            <header style={{borderRadius: '8px'}}>
                 <div class='grid-container'>
                     <div class='grid-item'>
                         <a href="/">
-                            <h1>LOGO</h1> 
+                            <img src={logo} alt={'logo'} style={logoStyle} /> 
                         </a>
                     </div>
                     <div class='grid-item'>
@@ -28,5 +29,10 @@ const Header = () => {
 const divStyle = {
     padding: '20px',
 };
+
+const logoStyle = {
+    width: '130px',
+    height: '125px'
+}
 
 export default Header;
