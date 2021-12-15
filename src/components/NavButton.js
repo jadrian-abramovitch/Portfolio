@@ -1,8 +1,19 @@
 import propTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 const NavButton = ({ name, color, link, backgroundColor }) => {
-    const buttonStyle = {
-        backgroundColor: backgroundColor,
+    const location = useLocation();
+    const [isHover, setIsHover] = useState(false);
+    const getButtonColor = () => {
+        if (isHover) {
+            return '#CBCDCB';
+        }
+        return location.pathname.includes(name.toLowerCase()) ? '#CBCDCB': backgroundColor;
+    }
+
+    var buttonStyle = {
+        backgroundColor: getButtonColor(),
         color: color,
         cursor: 'pointer',
         padding: '4px',
@@ -13,7 +24,7 @@ const NavButton = ({ name, color, link, backgroundColor }) => {
 
     return(
         <h5>
-            <a style={buttonStyle} href={link}>
+            <a style={buttonStyle} href={link} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                 {name} 
             </a>
         </h5>
