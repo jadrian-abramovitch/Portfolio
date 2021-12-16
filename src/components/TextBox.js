@@ -3,19 +3,21 @@ import propTypes from 'prop-types';
 const TextBox = ({ text, color }) => {
     const divStyle = {
         backgroundColor: color,
-        margin: '20px'
+        margin: '10px',
+        borderRadius: '8px',
+        padding: '10px'
     };
 
     return(
-        <div style={divStyle}>
+        <h5 style={divStyle}>
             {text}
-        </div>
+        </h5>
     );
 };
 
 TextBox.defaultProps = {
     text: 'Lorem Ipsum',
-    color: 'gray'
+    color: '#CBCDCB',
 };
 
 TextBox.propTypes = {

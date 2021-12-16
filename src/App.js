@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './components/Header';
-import TextBox from './components/TextBox';
 import Projects from './views/Projects';
 import Contact from './views/Contact';
 import Blog from './views/Blog';
+import About from './views/About';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" >
-          <TextBox color={'#CBCDCB'}/>
+          <About />
         </Route>
         <Route path="/projects">
           <Projects />
