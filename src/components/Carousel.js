@@ -1,13 +1,46 @@
 import React, { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import github from '../static/github.png';
+
 
 import "../styles/Carousel.css";
 
-export const CarouselItem = ({ children, width }) => {
+export const CarouselItem = ({ children, width, description }) => {
+    const textStyle = {
+        whiteSpace: 'normal',
+    };
+
+    const descriptionTextStyle = {
+    }
+
+    const tableStyle = {
+        display: 'grid',
+        gridAutoFlow: 'column',
+        gridRow: '1',
+        alignItems: 'center',
+        gridTemplateColumns: '1fr 3fr',
+        paddingRight: '20px'
+    };
+
+    const imgStyle = {
+        width: '200px',
+        height: '125px',
+    };
+
     return (
         <div className="carousel-item" style={{ width: width }}>
-            {children}
-        </div>
+            <div style={textStyle}>
+                <h2>{children}</h2>
+                <div style={tableStyle}>
+                    <div class='grid-item'> 
+                        <img src={github} alt='github' style={imgStyle}/>
+                    </div>
+                    <div class='grid-item'>
+                        <h5 style={descriptionTextStyle}>{description}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>      
     )
 };
 
