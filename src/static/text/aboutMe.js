@@ -1,4 +1,4 @@
-const aboutMeString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const aboutMeString = "I am a dedicated team player who is passionate about technology and solving problems. I recently (May 2021) graduated from the Nanotechnology Engineering program at the University of Waterloo. I’m adept in many programming languages including Python, JavaScript, Java, and SQL. I am confident using any operating system and fitting into any team. I consider myself extremely flexible and can adapt to any situation, whether it is using a new technology or working with a new teammate.";
 
 const aboutMeText = () => {
     return aboutMeString;

@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import github from '../static/github.png';
-
+import TextBox from '../components/TextBox';
 
 import "../styles/Carousel.css";
 
-export const CarouselItem = ({ children, width, description }) => {
+export const CarouselItem = ({ children, width, description, img }) => {
     const textStyle = {
         whiteSpace: 'normal',
+        fontSize: '18px',
     };
-
-    const descriptionTextStyle = {
-    }
 
     const tableStyle = {
         display: 'grid',
@@ -23,23 +20,25 @@ export const CarouselItem = ({ children, width, description }) => {
     };
 
     const imgStyle = {
-        width: '200px',
+        width: '125px',
         height: '125px',
     };
 
     return (
-        <div className="carousel-item" style={{ width: width }}>
-            <div style={textStyle}>
-                <h2>{children}</h2>
-                <div style={tableStyle}>
-                    <div class='grid-item'> 
-                        <img src={github} alt='github' style={imgStyle}/>
-                    </div>
-                    <div class='grid-item'>
-                        <h5 style={descriptionTextStyle}>{description}</h5>
+        <div className='carousel-item' style={{ width: width }}>
+            <TextBox>
+                <div style={textStyle}>
+                    <h2>{children}</h2>
+                    <div style={tableStyle}>
+                        <div class='grid-item'> 
+                            <img src={img} alt='project logo' style={imgStyle}/>
+                        </div>
+                        <div class='grid-item'>
+                            <h5>{description}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </TextBox>
         </div>      
     )
 };
@@ -87,6 +86,7 @@ const Carousel = ({ children }) => {
                     return React.cloneElement(child, { width: "100%" });
                 })}
             </div>
+            <div style={{height: '20px'}}></div>
             <div className="indicators">
                 <button onClick={() => {
                     updateIndex(activeIndex-1);

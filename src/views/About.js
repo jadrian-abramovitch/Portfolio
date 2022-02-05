@@ -1,22 +1,24 @@
 import TextBox from '../components/TextBox';
-import reactIcon from '../static/reactIcon.png';
+import selfie from '../static/selfie.jpg';
 import aboutMeText from '../static/text/aboutMe';
 
 const imgStyle = {
     width: '160px',
-    height: '160px'
+    height: '213px'
 };
 
 const About = () => {
     return(
+        <TextBox>
         <div class style={aboutTableStyle}>
             <div class='grid-item' >
-                <img src={reactIcon} alt={'React Icon'} style={imgStyle} />
+                <img src={selfie} alt={'React Icon'} style={imgStyle} />
             </div>
             <div class='grid-item' >
-                <TextBox text={aboutMeText()}/>
+                 {aboutMeText()} 
             </div>
         </div>
+        </TextBox>
     );
 };
 
