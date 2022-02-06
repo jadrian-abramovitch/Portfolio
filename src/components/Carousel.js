@@ -25,15 +25,15 @@ export const CarouselItem = ({ children, width, description, img }) => {
     };
 
     return (
-        <div className='carousel-item' style={{ width: width }}>
+        <div className="carousel-item" style={{ width: width }}>
             <TextBox>
                 <div style={textStyle}>
                     <h2>{children}</h2>
                     <div style={tableStyle}>
-                        <div class='grid-item'> 
+                        <div className="grid-item"> 
                             <img src={img} alt='project logo' style={imgStyle}/>
                         </div>
-                        <div class='grid-item'>
+                        <div className="grid-item">
                             <h5>{description}</h5>
                         </div>
                     </div>

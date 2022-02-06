@@ -5,19 +5,19 @@ const Header = () => {
     return(
         <div style={divStyle}>
             <header style={{borderRadius: '8px'}}>
-                <div class='grid-container'>
-                    <div class='grid-item'>
+                <div className="grid-container">
+                    <div className="grid-item">
                         <a href="/">
-                            <img src={logo} alt={'logo'} style={logoStyle} /> 
+                            <img src={logo} alt={"logo"} style={logoStyle} /> 
                         </a>
                     </div>
-                    <div class='grid-item'>
+                    <div className="grid-item">
                         <NavButton name={'Projects'} color={'black'} backgroundColor={'#607D86'} link={'/projects'}/>
                     </div>
-                    <div class='grid-item'>
+                    <div className="grid-item">
                         <NavButton name={'Blog'} color={'black'} backgroundColor={'#607D86'} link={'/blog'}/>
                     </div>
-                    <div class='grid-item'>
+                    <div className="grid-item">
                         <NavButton name={'Contact'} color={'black'} backgroundColor={'#607D86'} link={'/contact'}/>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const Header = () => {
 };
 
 const divStyle = {
-    padding: '20px',
+    padding: '10px',
 };
 
 const logoStyle = {

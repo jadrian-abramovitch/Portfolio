@@ -5,11 +5,13 @@ import Contact from './views/Contact';
 import Blog from './views/Blog';
 import About from './views/About';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
+      <main className="content">
         <Header />
         <Route exact path="/" >
           <About />
@@ -23,6 +25,8 @@ function App() {
         <Route path="/blog">
           <Blog />
         </Route>
+        </main>
+        <Footer></Footer>
       </div>
     </Router>
   );

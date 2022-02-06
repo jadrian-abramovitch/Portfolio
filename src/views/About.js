@@ -10,11 +10,11 @@ const imgStyle = {
 const About = () => {
     return(
         <TextBox>
-        <div class style={aboutTableStyle}>
-            <div class='grid-item' >
+        <div style={aboutTableStyle}>
+            <div className="grid-item">
                 <img src={selfie} alt={'React Icon'} style={imgStyle} />
             </div>
-            <div class='grid-item' >
+            <div className="grid-item">
                  {aboutMeText()} 
             </div>
         </div>
