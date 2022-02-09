@@ -15,7 +15,9 @@ const About = () => {
                 <img src={selfie} alt={'React Icon'} style={imgStyle} />
             </div>
             <div className="grid-item">
-                 {aboutMeText()} 
+                <h3>
+                    {aboutMeText()} 
+                </h3>
             </div>
         </div>
         </TextBox>

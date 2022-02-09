@@ -28,12 +28,12 @@ export const CarouselItem = ({ children, width, description, img }) => {
         <div className="carousel-item" style={{ width: width }}>
             <TextBox>
                 <div style={textStyle}>
-                    <h2>{children}</h2>
                     <div style={tableStyle}>
                         <div className="grid-item"> 
                             <img src={img} alt='project logo' style={imgStyle}/>
                         </div>
                         <div className="grid-item">
+                            <h2>{children}</h2>
                             <h5>{description}</h5>
                         </div>
                     </div>
@@ -86,7 +86,6 @@ const Carousel = ({ children }) => {
                     return React.cloneElement(child, { width: "100%" });
                 })}
             </div>
-            <div style={{height: '20px'}}></div>
             <div className="indicators">
                 <button onClick={() => {
                     updateIndex(activeIndex-1);
