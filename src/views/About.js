@@ -8,18 +8,29 @@ const imgStyle = {
 };
 
 const About = () => {
+    const isDesktop = window.screen.width >= 1280;
+
     return(
         <TextBox>
-        <div style={aboutTableStyle}>
-            <div className="grid-item">
-                <img src={selfie} alt={'React Icon'} style={imgStyle} />
-            </div>
-            <div className="grid-item">
-                <h3>
-                    {aboutMeText()} 
-                </h3>
-            </div>
-        </div>
+            {isDesktop && 
+                <div style={aboutTableStyle}>
+                    <div className="grid-item">
+                        <img src={selfie} alt={'React Icon'} style={imgStyle} />
+                    </div>
+                    <div className="grid-item">
+                        <h3>
+                            {aboutMeText()} 
+                        </h3>
+                    </div>
+                </div>
+            }
+            {!isDesktop &&
+                <>
+                    <img src={selfie} alt={'React Icon'} style={imgStyle} /><h3>
+                    {aboutMeText()}
+                    </h3>
+                </>
+            }
         </TextBox>
     );
 };

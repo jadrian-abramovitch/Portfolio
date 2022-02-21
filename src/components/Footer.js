@@ -7,6 +7,8 @@ const Footer = () => {
         borderRadius: '8px',
     };
 
+    const isDesktop = window.screen.width >= 1280;
+
     return (
         <div style={{padding: '10px'}}>
             <footer style={footerStyle}>
@@ -19,14 +21,17 @@ const Footer = () => {
                             <img src={newLinkedin} style={linkedInStyle} alt={'LinkedIn'} />
                         </a>
                     </div>
-                    <div className="grid-item">
-                        <a href='https://github.com/jadrian-abramovitch/'>
-                            <img src={github} style={githubStyle} alt={'github'} />
-                        </a>
-                    </div>
-                    <div className="grid-item">
-                        <h4>jmabramo@uwaterloo.ca</h4>
-                    </div>
+                    {isDesktop && 
+                        <>
+                            <div className="grid-item">
+                            <a href='https://github.com/jadrian-abramovitch/'>
+                                <img src={github} style={githubStyle} alt={'github'} />
+                            </a>
+                            </div><div className="grid-item">
+                                <h4>jmabramo@uwaterloo.ca</h4>
+                            </div>
+                        </>
+                    }
                 </div>
             </footer>
         </div>
