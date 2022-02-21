@@ -28,7 +28,7 @@ const Footer = () => {
                                 <img src={github} style={githubStyle} alt={'github'} />
                             </a>
                             </div><div className="grid-item">
-                                <h4>jmabramo@uwaterloo.ca</h4>
+                                <h4><a href='mailto:jmabramo@uwaterloo.ca' style={linkStyle}>jmabramo@uwaterloo.ca</a></h4>
                             </div>
                         </>
                     }
@@ -38,14 +38,17 @@ const Footer = () => {
     );
 };
 
+const linkStyle = {
+    textDecoration: 'none',
+    color: 'black',
+};
 const linkedInStyle = {
     width: '25px',
     height: '25px',
 };
-
 const githubStyle = {
     width: '75px',
     height: '50px',
-}
+};
 
 export default Footer;

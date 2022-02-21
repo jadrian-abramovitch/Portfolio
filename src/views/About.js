@@ -1,6 +1,6 @@
 import TextBox from '../components/TextBox';
 import selfie from '../static/selfie.jpg';
-import aboutMeText from '../static/text/aboutMe';
+import {aboutMe, aboutMeDetails} from '../static/text/aboutMe';
 
 const imgStyle = {
     width: '160px',
@@ -11,27 +11,32 @@ const About = () => {
     const isDesktop = window.screen.width >= 1280;
 
     return(
-        <TextBox>
-            {isDesktop && 
-                <div style={aboutTableStyle}>
-                    <div className="grid-item">
-                        <img src={selfie} alt={'React Icon'} style={imgStyle} />
-                    </div>
-                    <div className="grid-item">
-                        <h3>
-                            {aboutMeText()} 
+        <>
+            <TextBox>
+                {isDesktop &&
+                    <div style={aboutTableStyle}>
+                        <div className="grid-item">
+                            <img src={selfie} alt={'React Icon'} style={imgStyle} />
+                        </div>
+                        <div className="grid-item">
+                            <h3>
+                                {aboutMe()}
+                            </h3>
+                        </div>
+                    </div>}
+                {!isDesktop &&
+                    <>
+                        <img src={selfie} alt={'React Icon'} style={imgStyle} /><h3>
+                            {aboutMe()}
                         </h3>
-                    </div>
-                </div>
-            }
-            {!isDesktop &&
-                <>
-                    <img src={selfie} alt={'React Icon'} style={imgStyle} /><h3>
-                    {aboutMeText()}
-                    </h3>
-                </>
-            }
-        </TextBox>
+                    </>}
+            </TextBox>
+            <TextBox>
+                <h3>
+                    {aboutMeDetails()}
+                </h3>
+            </TextBox>
+        </>
     );
 };
 
