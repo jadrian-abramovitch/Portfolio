@@ -7,7 +7,7 @@ leveraging tools (such as automated testing) to the team's advantage to create r
 software solutions.";
 
 const aboutMeDetailed = "While I have worked with many different programming languages and technologies in the \
-past, I am strongest with: JS, Python, Java, HTML, CSS, and SQL. I have experience with \
+past, I am strongest with: JavaScript, Python, Java, HTML, CSS, and SQL. I have experience with \
 each of the major 3 flavors of operating systems (Mac, Linux, Windows) as well as experience \
 developing both backend API's and front end pages/components. I'm no security expert, but I \
 am confident in my ability to avoid the most common security pitfalls (as described in by OWASP) \

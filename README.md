@@ -42,3 +42,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Weird things I have noticed about JS/react
 -React allows you to change styling everywhere, conformity is self imposed
 -JS allows too much freedom in my opinion. Why should there be so many viable methods to create a 'class'?
+-Messiness due to fragmented development history
