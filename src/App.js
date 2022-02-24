@@ -15,15 +15,11 @@ function App() {
         <Header />
         <Route exact path="/" >
           <About />
-        </Route>
-        <Route path="/projects">
           <Projects />
+          <Blog />
         </Route>
         <Route path="/contact">
           <Contact />
-        </Route>
-        <Route path="/blog">
-          <Blog />
         </Route>
         </main>
         <Footer></Footer>

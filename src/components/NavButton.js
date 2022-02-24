@@ -1,10 +1,13 @@
 import propTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
-const NavButton = ({ name, color, link, backgroundColor }) => {
+const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
     const location = useLocation();
     const [isHover, setIsHover] = useState(false);
+    let history = useHistory();
+
     const getButtonColor = () => {
         if (isHover) {
             return '#CBCDCB';
@@ -21,19 +24,29 @@ const NavButton = ({ name, color, link, backgroundColor }) => {
         borderRadius: '4px',
         border: '1px solid black'
     };
+    const onClickScroll = () => {
+        history.push('/');
+        document.getElementById(scrollTo).scrollIntoView();
+    };
+
+    const isLink = !!link;
 
     return(
         <h5>
+            {isLink && 
             <a style={buttonStyle} href={link} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                 {name} 
-            </a>
+            </a> }
+            {!isLink && 
+            <a style={buttonStyle} onClick={onClickScroll} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+                {name} 
+            </a> }
         </h5>
     );
 };
 
 NavButton.defaultProps = {
     name: 'Btn',
-    link: '/'
 };
 
 NavButton.propTypes = {

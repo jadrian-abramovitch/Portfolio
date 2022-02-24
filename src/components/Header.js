@@ -12,13 +12,13 @@ const Header = () => {
                         </a>
                     </div>
                     <div className="grid-item">
-                        <NavButton name={'Projects'} color={'black'} backgroundColor={'#607D86'} link={'/projects'}/>
+                        <NavButton name={'Projects'} color={'black'} backgroundColor={'#607D86'} scrollTo={'projects'}/>
                     </div>
                     <div className="grid-item">
-                        <NavButton name={'Blog'} color={'black'} backgroundColor={'#607D86'} link={'/blog'}/>
+                        <NavButton name={'Blog'} color={'black'} backgroundColor={'#607D86'} scrollTo={'blog'}/>
                     </div>
                     <div className="grid-item">
-                        <NavButton name={'Contact'} color={'black'} backgroundColor={'#607D86'} link={'/contact'}/>
+                        <NavButton name={'Contact'} color={'black'} backgroundColor={'#607D86'} link={'contact'}/>
                     </div>
                 </div>
             </header>
