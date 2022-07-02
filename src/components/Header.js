@@ -18,7 +18,7 @@ const Header = () => {
                         <NavButton name={'Blog'} color={'black'} backgroundColor={'#607D86'} scrollTo={'blog'}/>
                     </div>
                     <div className="grid-item">
-                        <NavButton name={'Contact'} color={'black'} backgroundColor={'#607D86'} link={'contact'}/>
+                        <NavButton name={'Contact'} color={'black'} backgroundColor={'#607D86'} scrollTo={'contact'}/>
                     </div>
                 </div>
             </header>

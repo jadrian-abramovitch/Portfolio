@@ -17,8 +17,6 @@ function App() {
           <About />
           <Projects />
           <Blog />
-        </Route>
-        <Route path="/contact">
           <Contact />
         </Route>
         </main>
