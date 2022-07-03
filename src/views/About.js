@@ -1,4 +1,5 @@
 import TextBox from '../components/TextBox';
+import TwoTruths from '../components/TwoTruths';
 import selfie from '../static/selfie.jpg';
 import {aboutMe, aboutMeDetails} from '../static/text/aboutMe';
 
@@ -36,6 +37,7 @@ const About = () => {
                     {aboutMeDetails()}
                 </h3>
             </TextBox>
+            <TwoTruths />
         </>
     );
 };

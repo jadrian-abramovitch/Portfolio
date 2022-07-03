@@ -1,17 +1,22 @@
 import propTypes from 'prop-types';
+import { useState } from 'react';
 
 const TextBox = ({ children, text, color }) => {
+    const [isHover, setIsHover] = useState(false);
+
     const divStyle = {
         backgroundColor: color,
         margin: '20px',
         borderRadius: '8px',
-        padding: '10px',
+        padding: '5px',
+        border: isHover ? '1px solid black' : '0px' 
     };
 
     return(
-        <h5 style={divStyle}>
+        <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} style={divStyle}>
             {children}
-        </h5>
+        </div>
+
     );
 };
 
