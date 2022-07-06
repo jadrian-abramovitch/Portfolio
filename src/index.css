@@ -30,3 +30,16 @@ Header {
   background-color: black;
 }
 
+.truth-card {
+  padding: 2;
+  border: none;
+  backGround: none;
+}
+
+.truth-card:hover {
+  background-color: #607D86;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: inline-block;
+}

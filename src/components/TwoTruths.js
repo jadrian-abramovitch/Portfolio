@@ -1,6 +1,9 @@
 import TextBox from '../components/TextBox';
 import { useState } from 'react';
 
+const TRUTH_STAMENTS_AMOUNT = 2;
+const LIE_STATEMENTS_AMOUNT = 1;
+
 const gameData = {
     thruths: [
         'I was born on a Friday the 13th (Spooky)',
@@ -15,15 +18,17 @@ const gameData = {
     lies: [
         'I played the UPS guy in my high school\'s production of Legally Blonde',
         'I still use Windows 7 daily',
-        'Internet explorer is a great browser'
+        'Internet explorer is a great browser',
+        'I have been to Italy'
     ]
 };
 
 const TwoTruths = () => {
     //add styling to truth/lie list elements
-    const [gameStarted, setGameStarted] = useState(false); //setGameStarted triggers a render, causing code to run twice I think
-    // im getting trolled intentionally by this https://medium.com/nmc-techblog/wait-youre-not-using-react-strictmode-a9713927a33b
-    const [timesPlayed, setTimesplayed] = useState(0);
+    const [gameStarted, setGameStarted] = useState(false);
+    const [gameOver, setGameOver] = useState(false);
+    const [correctAnswers, setCorrectAnswers] = useState(0);
+
     let currentData = {
         cardData : [],
         isTheLie: [],
@@ -35,11 +40,12 @@ const TwoTruths = () => {
         if (currentData.cardData.length !== 0) {
             throw new Error('Card Data already exists');
         }
-        for (let i = 0; i < 2; i++) { //magic number
+        if (gameData.thruths < TRUTH_STAMENTS_AMOUNT || gameData.lie < LIE_STATEMENTS_AMOUNT) {
+            throw new Error('No more data');
+        }
+        for (let i = 0; i < TRUTH_STAMENTS_AMOUNT; i++) {
             const randomIndex = Math.floor(Math.random()*gameData.thruths.length);
-            console.log('gameData.truths: ', gameData.thruths);
             const randomTruth = gameData.thruths.splice(randomIndex, 1)[0];
-            console.log('gameData.truths: ', gameData.thruths);
             currentData.cardData.push(randomTruth);
             currentData.isTheLie.push(false);
         };
@@ -52,7 +58,11 @@ const TwoTruths = () => {
 
     const getCardData = (cardId) => {
         if (currentData.cardData.length === 0) {
-            setCardData();
+            try {
+                setCardData();
+            } catch(error) {
+                setGameOver(true);
+            }
         }
         const randomIndex = Math.floor(Math.random()*currentData.cardData.length);
         const isLie = currentData.isTheLie.splice(randomIndex, 1)[0];
@@ -71,35 +81,40 @@ const TwoTruths = () => {
     const chooseAnswer = (cardId) => {
         if (currentData.lieMapper[cardId] === true) {
             displayCorrectMessage();
-            // setGameStarted(false);
-            setTimesplayed(timesPlayed + 1);
+            setCorrectAnswers(correctAnswers + 1);
         } else {
             displayIncorrectMessage();
         }
     };
 
+    const gridStyle = {
+    };
+
     return(
         <div id='2truths'>
             <TextBox>
-                <h3>{gameStarted ? 'Here are 3 statements about me, try to guess which is the lie!': 
-                                   'Enough boring reading! Lets play 2 truths 1 lie! Which I realize is still reading, but I think it is more fun.'}
+                <h3>{!gameOver && (gameStarted ? 'Here are 3 statements about me, try to guess which is the lie!': 
+                                   'Enough boring reading! Lets play 2 truths 1 lie! Which I realize is still reading, but I think it is more fun.')}
                 </h3>
-                { !gameStarted && <button onClick={() => {setGameStarted(true)}}>Start!</button> }
-                { gameStarted &&
-                <div>      
+                <h3> 
+                    {gameOver && `Game over! You found ${correctAnswers} lies. I guess that means you know everything about me now.`}
+                </h3>
+                { !gameOver && !gameStarted && <button onClick={() => {setGameStarted(true)}}>Start!</button> }
+                { !gameOver && gameStarted &&
+                <div style={gridStyle}>      
                     <div className="grid-container">
                         <div className="grid-item">
-                            <button onClick={() => {chooseAnswer(0)}}>
+                            <button className="truth-card" onClick={() => {chooseAnswer(0)}}>
                                 <h5>{getCardData(0)}</h5>
                             </button>
                         </div>
                         <div className="grid-item">
-                            <button onClick={() => {chooseAnswer(1)}}>
+                            <button className="truth-card" onClick={() => {chooseAnswer(1)}}>
                                 <h5>{getCardData(1)}</h5>
                             </button>
                         </div>
                         <div className="grid-item">
-                            <button onClick={() => {chooseAnswer(2)}}>
+                            <button className="truth-card" onClick={() => {chooseAnswer(2)}}>
                                 <h5>{getCardData(2)}</h5>
                             </button>
                         </div>
