@@ -50,3 +50,19 @@ Header {
   width: 100%;
   display: inline-block;
 }
+
+.two-truths-start {
+  border: 1px solid black;
+  border-radius: 4px;
+  width: max-content;
+  margin: auto;
+};
+
+.two-truths-start-button {
+  backGround: none;
+}
+
+.two-truths-start-button:hover {
+  background-color: #C44B4F;
+  cursor: pointer;
+};

@@ -36,7 +36,6 @@ const TwoTruths = () => {
     };
     
     const setCardData = () => {
-        console.log('test test');
         if (currentData.cardData.length !== 0) {
             throw new Error('Card Data already exists');
         }
@@ -53,7 +52,6 @@ const TwoTruths = () => {
         const randomLie = gameData.lies.splice(randomIndex, 1)[0];
         currentData.cardData.push(randomLie);
         currentData.isTheLie.push(true);
-        // console.log(gameData);
     };
 
     const getCardData = (cardId) => {
@@ -87,8 +85,6 @@ const TwoTruths = () => {
         }
     };
 
-    const gridStyle = {
-    };
 
     return(
         <div id='2truths'>
@@ -99,9 +95,12 @@ const TwoTruths = () => {
                 <h3> 
                     {gameOver && `Game over! You found ${correctAnswers} lies. I guess that means you know everything about me now.`}
                 </h3>
-                { !gameOver && !gameStarted && <button onClick={() => {setGameStarted(true)}}>Start!</button> }
+                { !gameOver && !gameStarted && <div className='two-truths-start'>
+                                                    <button className='two-truths-start-button' onClick={() => {setGameStarted(true)}}>
+                                                        <h3>Start Game!</h3>
+                                                    </button>
+                                                </div>}
                 { !gameOver && gameStarted &&
-                <div style={gridStyle}>      
                     <div className="grid-container">
                         <div className="grid-item">
                             <div className="truth-card" onClick={() => {chooseAnswer(0)}}>
@@ -125,7 +124,6 @@ const TwoTruths = () => {
                             </div>
                         </div>
                     </div>
-                </div>
                 }
             </TextBox>
         </div>
