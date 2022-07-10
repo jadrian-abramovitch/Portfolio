@@ -104,19 +104,25 @@ const TwoTruths = () => {
                 <div style={gridStyle}>      
                     <div className="grid-container">
                         <div className="grid-item">
-                            <button className="truth-card" onClick={() => {chooseAnswer(0)}}>
-                                <h5>{getCardData(0)}</h5>
-                            </button>
+                            <div className="truth-card" onClick={() => {chooseAnswer(0)}}>
+                                <button className="truth-card-button">
+                                    <h3>{getCardData(0)}</h3>
+                                </button>
+                            </div>
                         </div>
                         <div className="grid-item">
-                            <button className="truth-card" onClick={() => {chooseAnswer(1)}}>
-                                <h5>{getCardData(1)}</h5>
-                            </button>
+                            <div className="truth-card" onClick={() => {chooseAnswer(1)}}>
+                                <button className="truth-card-button">
+                                    <h3>{getCardData(1)}</h3>
+                                </button>
+                            </div>
                         </div>
                         <div className="grid-item">
-                            <button className="truth-card" onClick={() => {chooseAnswer(2)}}>
-                                <h5>{getCardData(2)}</h5>
-                            </button>
+                            <div className="truth-card" onClick={() => {chooseAnswer(2)}}>
+                                <button className="truth-card-button">
+                                    <h3>{getCardData(2)}</h3>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
