@@ -9,7 +9,7 @@ const TextBox = ({ children, text, color }) => {
         margin: '20px',
         borderRadius: '8px',
         padding: '5px',
-        border: isHover ? '1px solid black' : '0px' 
+        border: isHover ? '2px solid black' : '0px' 
     };
 
     return(

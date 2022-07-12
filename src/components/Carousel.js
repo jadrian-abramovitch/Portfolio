@@ -87,11 +87,11 @@ const Carousel = ({ children }) => {
                 })}
             </div>
             <div className="indicators">
-                <button onClick={() => {
+                <button className="carousel-nav-button" onClick={() => {
                     updateIndex(activeIndex-1);
                 }}
                 >
-                    Prev
+                    <h3>Prev</h3>
                 </button>
                 {React.Children.map(children, (child, index) => {
                     return (
@@ -101,15 +101,15 @@ const Carousel = ({ children }) => {
                             updateIndex(index);
                         }}
                         >
-                            {index + 1}
+                            {/* {index + 1} */}
                         </button>
                     );
                 })}
-                <button onClick={() => {
+                <button className="carousel-nav-button" onClick={() => {
                     updateIndex(activeIndex + 1);
                 }}
                 >
-                    Next
+                    <h3>Next</h3>
                 </button>
             </div>
         </div>

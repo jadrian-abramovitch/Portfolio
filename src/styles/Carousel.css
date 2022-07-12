@@ -21,11 +21,30 @@
 }
 
 .indicators > button {
-    margin: 5px;
-    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid black;
+    width: 50px;
+    height: 50px;
+}
+
+.indicators > button:hover {
+    background-color: #CBCDCB;
+    cursor: pointer;
 }
 
 .indicators > button.active {
-    background-color: #CBCDCB;
+    background-color: #C44B4F;
     color: black;
+}
+
+.carousel-nav-button {
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.carousel-nav-button > h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

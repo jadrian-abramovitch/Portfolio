@@ -14,7 +14,9 @@ const Footer = () => {
             <footer style={footerStyle}>
                 <div className="grid-container">
                     <div className="grid-item">
-                        <h4>Jadrian Abramovitch</h4>
+                        <a href='/' style={{color: 'black', textDecoration: 'none'}}>
+                            <h4>Jadrian Abramovitch</h4>
+                        </a>
                     </div>
                     <div className="grid-item">
                         <a href='https://www.linkedin.com/in/jadrian-abramovitch-62bba5180'>
