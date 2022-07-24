@@ -37,7 +37,15 @@ Header {
   cursor: pointer;
   border-radius: 4px;
   padding: 4px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
+
+.truth-card-selected {
+  background-color: #C44B4F;
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;}
 
 .truth-card-button {
   border: none;
@@ -46,9 +54,9 @@ Header {
  
 .truth-card:hover {
   background-color: #C44B4F;
-  height: 100%;
-  width: 100%;
   display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .two-truths-start {

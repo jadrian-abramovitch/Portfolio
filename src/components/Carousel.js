@@ -91,7 +91,7 @@ const Carousel = ({ children }) => {
                     updateIndex(activeIndex-1);
                 }}
                 >
-                    <h3>Prev</h3>
+                    <h1>&#9664;</h1>
                 </button>
                 {React.Children.map(children, (child, index) => {
                     return (
@@ -109,7 +109,7 @@ const Carousel = ({ children }) => {
                     updateIndex(activeIndex + 1);
                 }}
                 >
-                    <h3>Next</h3>
+                    <h1>&#9654;</h1>
                 </button>
             </div>
         </div>

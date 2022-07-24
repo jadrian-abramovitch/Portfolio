@@ -1,5 +1,5 @@
 import TextBox from '../components/TextBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const TRUTH_STAMENTS_AMOUNT = 2;
 const LIE_STATEMENTS_AMOUNT = 1;
@@ -24,48 +24,51 @@ const gameData = {
 };
 
 const TwoTruths = () => {
-    //add styling to truth/lie list elements
+    //This could proabably be abstracted to x-truths y-lies easily
     const [gameStarted, setGameStarted] = useState(false);
     const [gameOver, setGameOver] = useState(false);
     const [correctAnswers, setCorrectAnswers] = useState(0);
-
-    let currentData = {
-        cardData : [],
-        isTheLie: [],
-        lieMapper: {}
-    };
+    const [cardSelected, setCardSelected] = useState([false, false, false]);
+    const [isTheLie, setIsTheLie] = useState([false, false, false]);
+    const [cardStatments, setCardStatements] = useState(['', '', '']);
     
-    const setCardData = () => {
-        if (currentData.cardData.length !== 0) {
-            throw new Error('Card Data already exists');
+    useEffect(() => {
+        if (gameOver || !gameStarted) {
+            return;
+        } else if (gameData.thruths.length < TRUTH_STAMENTS_AMOUNT || gameData.lies.length < LIE_STATEMENTS_AMOUNT) {
+            setGameOver(true);
         }
-        if (gameData.thruths < TRUTH_STAMENTS_AMOUNT || gameData.lie < LIE_STATEMENTS_AMOUNT) {
-            throw new Error('No more data');
-        }
-        for (let i = 0; i < TRUTH_STAMENTS_AMOUNT; i++) {
-            const randomIndex = Math.floor(Math.random()*gameData.thruths.length);
-            const randomTruth = gameData.thruths.splice(randomIndex, 1)[0];
-            currentData.cardData.push(randomTruth);
-            currentData.isTheLie.push(false);
-        };
-        const randomIndex = Math.floor(Math.random()*gameData.lies.length);
-        const randomLie = gameData.lies.splice(randomIndex, 1)[0];
-        currentData.cardData.push(randomLie);
-        currentData.isTheLie.push(true);
-    };
 
-    const getCardData = (cardId) => {
-        if (currentData.cardData.length === 0) {
-            try {
-                setCardData();
-            } catch(error) {
-                setGameOver(true);
+        const shuffleArray = (array) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
         }
-        const randomIndex = Math.floor(Math.random()*currentData.cardData.length);
-        const isLie = currentData.isTheLie.splice(randomIndex, 1)[0];
-        currentData.lieMapper[cardId] = isLie;
-        return currentData.cardData.splice(randomIndex, 1)[0];
+
+        const randomOrder = [0,1,2];
+        shuffleArray(randomOrder);
+        const newStatements = ['', '', ''];
+        const newLieOrder = [false, false, false];
+
+        for (let i = 0; i < TRUTH_STAMENTS_AMOUNT; i++) {
+            const randomtruthPosition = randomOrder.pop();
+            const randomIndex = Math.floor(Math.random()*gameData.thruths.length);
+            const randomTruth = gameData.thruths.splice(randomIndex, 1)[0];
+            newStatements[randomtruthPosition] = randomTruth;
+        };
+        const randomLiePosition = randomOrder.pop();
+        const randomIndex = Math.floor(Math.random()*gameData.lies.length);
+        const randomLie = gameData.lies.splice(randomIndex, 1)[0];
+        newStatements[randomLiePosition] = randomLie;
+        newLieOrder[randomLiePosition] = true;
+
+        setCardStatements(newStatements);
+        setIsTheLie(newLieOrder);
+    }, [gameStarted, correctAnswers, gameOver]);
+
+    const getCardData = (cardId) => {
+        return cardStatments[cardId];
     };
 
     const displayCorrectMessage = () => {
@@ -76,11 +79,24 @@ const TwoTruths = () => {
         alert('Incorrect!!!');
     }
 
+    const getCardClassName = (cardId) => {
+        return(cardSelected[cardId] ? 'truth-card-selected' : 'truth-card');
+    }
+
+    const cleanCardData = () => {
+        const noCardSelected = [false, false, false];
+        setCardSelected(noCardSelected);
+    };
+
     const chooseAnswer = (cardId) => {
-        if (currentData.lieMapper[cardId] === true) {
+        if (isTheLie[cardId] === true) {
             displayCorrectMessage();
             setCorrectAnswers(correctAnswers + 1);
+            cleanCardData();
         } else {
+            const newSelectedState = cardSelected.slice();
+            newSelectedState[cardId] = true;
+            setCardSelected(newSelectedState);
             displayIncorrectMessage();
         }
     };
@@ -95,29 +111,30 @@ const TwoTruths = () => {
                 <h3> 
                     {gameOver && `Game over! You found ${correctAnswers} lies. I guess that means you know everything about me now.`}
                 </h3>
-                { !gameOver && !gameStarted && <div className='two-truths-start'>
-                                                    <button className='two-truths-start-button' onClick={() => {setGameStarted(true)}}>
-                                                        <h3>Start Game!</h3>
-                                                    </button>
-                                                </div>}
+                { !gameOver && !gameStarted && 
+                    <div className='two-truths-start'>
+                        <button className='two-truths-start-button' onClick={() => {setGameStarted(true)}}>
+                            <h3>Start Game!</h3>
+                        </button>
+                    </div>}
                 { !gameOver && gameStarted &&
                     <div className="grid-container">
                         <div className="grid-item">
-                            <div className="truth-card" onClick={() => {chooseAnswer(0)}}>
+                            <div className={getCardClassName(0)} onClick={() => {chooseAnswer(0)}}>
                                 <button className="truth-card-button">
                                     <h3>{getCardData(0)}</h3>
                                 </button>
                             </div>
                         </div>
                         <div className="grid-item">
-                            <div className="truth-card" onClick={() => {chooseAnswer(1)}}>
+                            <div className={getCardClassName(1)} onClick={() => {chooseAnswer(1)}}>
                                 <button className="truth-card-button">
                                     <h3>{getCardData(1)}</h3>
                                 </button>
                             </div>
                         </div>
                         <div className="grid-item">
-                            <div className="truth-card" onClick={() => {chooseAnswer(2)}}>
+                            <div className={getCardClassName(2)} onClick={() => {chooseAnswer(2)}}>
                                 <button className="truth-card-button">
                                     <h3>{getCardData(2)}</h3>
                                 </button>

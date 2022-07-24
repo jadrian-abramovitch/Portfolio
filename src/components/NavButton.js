@@ -23,7 +23,7 @@ const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
         textDecoration: 'none',
         borderRadius: '4px',
         border: '2px solid black',
-        height: '30px'
+        height: '40px'
     };
     const onClickScroll = () => {
         history.push('/');
@@ -36,15 +36,15 @@ const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
         <div>
             {isLink && 
             <button className='nav-button' style={buttonStyle} href={link} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-                <h3 style={{margin: '0px'}}>
+                <h2 style={{margin: '0px'}}>
                     {name} 
-                </h3>
+                </h2>
             </button> }
             {!isLink && 
             <button className='nav-button' style={buttonStyle} onClick={onClickScroll} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-                <h3 className='test123' style={{margin: '0px'}}>
+                <h2 className='test123' style={{margin: '0px'}}>
                     {name} 
-                </h3> 
+                </h2> 
             </button> }
         </div>
     );
