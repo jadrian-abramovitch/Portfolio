@@ -7,7 +7,7 @@ const Footer = () => {
         borderRadius: '8px',
     };
 
-    const isDesktop = window.screen.width >= 1280;
+    const isDesktop = window.screen.width >= 1000;
 
     return (
         <div style={{padding: '10px'}}>

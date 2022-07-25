@@ -9,7 +9,7 @@ const imgStyle = {
 };
 
 const About = () => {
-    const isDesktop = window.screen.width >= 1280;
+    const isDesktop = window.screen.width >= 1000;
 
     return(
         <>

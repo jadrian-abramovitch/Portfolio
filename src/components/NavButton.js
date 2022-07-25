@@ -15,7 +15,7 @@ const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
         return location.pathname.includes(name.toLowerCase()) ? '#CBCDCB': backgroundColor;
     }
 
-    var buttonStyle = {
+    const buttonStyle = {
         backgroundColor: getButtonColor(),
         color: color,
         cursor: 'pointer',
