@@ -13,7 +13,8 @@ const DropDownMenu = ({labels, scrollTos}) => {
         border: '2px solid black',
         height: '40px',
         width: '100px',
-        display: 'subgrid'
+        display: 'subgrid',
+        margin: '5px 0px 5px 0px'
     };
 
     const [isDropped, setIsDropped] = useState(false);
@@ -26,14 +27,14 @@ const DropDownMenu = ({labels, scrollTos}) => {
 
     return(
         <div className="dd-wrapper">
-            <button onClick={() => setIsDropped(!isDropped)} style={buttonStyle}>MENU</button>
+            {isDropped && <button onClick={() => setIsDropped(!isDropped)} style={buttonStyle}><h2 className='mobile-drop-menu'>Menu &#8613;</h2></button> }
+            {!isDropped && <button onClick={() => setIsDropped(!isDropped)} style={buttonStyle}><h2 className='mobile-drop-menu'>Menu &#8615;</h2></button> }
             {isDropped &&
             labels.map((label, i) => {
                 return (<div key={label}>
-                    <button style={buttonStyle} onClick={() => {onClickScroll(scrollTos[i])}}>{label}</button>
+                    <button style={buttonStyle} onClick={() => {onClickScroll(scrollTos[i])}}><h2 className='mobile-drop-menu'>{label}</h2></button>
                 </div>)
-            })
-            }
+            })}
         </div>
     );
 };
