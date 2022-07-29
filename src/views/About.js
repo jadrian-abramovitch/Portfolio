@@ -15,7 +15,7 @@ const About = () => {
         <>
             <TextBox>
                 {isDesktop &&
-                    <div style={aboutTableStyle}>
+                    <div id='about-me' style={aboutTableStyle}>
                         <div className="grid-item">
                             <img src={selfie} alt={'React Icon'} style={imgStyle} />
                         </div>

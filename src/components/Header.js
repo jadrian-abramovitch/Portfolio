@@ -1,18 +1,32 @@
 import NavButton from './NavButton';
 import DropDownMenu from './DropDownMenu';
 import logo from '../static/logo.png'
+import { useHistory } from "react-router-dom";
+
 
 const Header = () => {
     const isDesktop = window.screen.width >= 1000;
+    let history = useHistory();
+    const onClickScroll = () => {
+        history.push('/');
+        document.getElementById('about-me').scrollIntoView();
+    };
+
+    const buttonStyle = {
+        padding: '0px',
+        backgroundColor: '#C44B4F',
+        border: '0px',
+        cursor: 'pointer'
+    };
 
     return(
         <div style={divStyle}>
             <header style={{borderRadius: '8px'}}>
                 <div className="grid-container">
                     <div className="grid-item">
-                        <a href="/">
+                        <button onClick={onClickScroll} style={buttonStyle}>
                             <img src={logo} alt={"logo"} style={logoStyle} /> 
-                        </a>
+                        </button>
                     </div>
                     {isDesktop &&
                     <>
