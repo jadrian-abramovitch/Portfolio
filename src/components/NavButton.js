@@ -29,7 +29,9 @@ const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
   };
   const onClickScroll = () => {
     history.push("/");
-    document.getElementById(scrollTo).scrollIntoView();
+    document
+      .getElementById(scrollTo)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const isLink = !!link;

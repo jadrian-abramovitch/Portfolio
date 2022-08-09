@@ -8,7 +8,9 @@ const Header = () => {
   let history = useHistory();
   const onClickScroll = () => {
     history.push("/");
-    document.getElementById("about-me").scrollIntoView();
+    document
+      .getElementById("header-space-holder")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const buttonStyle = {
@@ -67,6 +69,7 @@ const Header = () => {
           )}
         </div>
       </header>
+      <div className="header-space-holder" id="header-space-holder"></div>
     </div>
   );
 };

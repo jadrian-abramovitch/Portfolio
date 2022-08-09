@@ -22,7 +22,9 @@ const DropDownMenu = ({ labels, scrollTos }) => {
 
   const onClickScroll = (scrollTo) => {
     history.push("/");
-    document.getElementById(scrollTo).scrollIntoView();
+    document
+      .getElementById(scrollTo)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (

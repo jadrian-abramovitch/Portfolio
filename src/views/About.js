@@ -3,13 +3,12 @@ import TwoTruths from "../components/TwoTruths";
 import selfie from "../static/selfie.jpg";
 import { aboutMe, aboutMeDetails } from "../static/text/aboutMe";
 
-const imgStyle = {
-  width: "160px",
-  height: "213px",
-};
-
 const About = () => {
   const isDesktop = window.screen.width >= 1000;
+  const imgStyle = {
+    width: isDesktop ? "230px" : "160px",
+    height: isDesktop ? "300px" : "213px",
+  };
 
   return (
     <>

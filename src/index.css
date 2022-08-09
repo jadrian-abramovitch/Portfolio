@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -15,6 +16,9 @@ code {
 Header {
   color: black;
   background-color: #C44B4F;
+  position: fixed;
+  width: 98%;
+  z-index: 1;
 }
 
 .grid-container {
@@ -27,7 +31,7 @@ Header {
 };
 
 .grid-item {
-  background-color: black;
+  background-color: black; 
 }
 
 .truth-card {
@@ -82,4 +86,13 @@ Header {
 h2.mobile-drop-menu {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.contact-link:hover {
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.header-space-holder {
+  height: 125px;
 }

@@ -10,6 +10,8 @@ export const CarouselItem = ({ name, width, description, img }) => {
     fontSize: "18px",
   };
 
+  const isDesktop = window.screen.width >= 1000;
+
   const projectUrl = {
     "Find Me A Team!": "https://github.com/jadrian-abramovitch/FindMeATeam",
     "NHL Stats": "https://github.com/jadrian-abramovitch/NHL-Scraper",
@@ -26,8 +28,8 @@ export const CarouselItem = ({ name, width, description, img }) => {
   };
 
   const imgStyle = {
-    width: "125px",
-    height: "125px",
+    width: isDesktop ? "300px" : "125px",
+    height: isDesktop ? "300px" : "125px",
   };
 
   const linkTextStyle = {

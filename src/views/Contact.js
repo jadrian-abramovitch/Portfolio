@@ -19,14 +19,28 @@ const Contact = () => {
         <h1>Contact</h1>
         <a href={"https://www.linkedin.com/in/jadrian-abramovitch-62bba5180"}>
           {" "}
-          <img src={linkedin} alt={"LinkedIn"} style={imgStyle} />{" "}
+          <img
+            className="contact-link"
+            src={linkedin}
+            alt={"LinkedIn"}
+            style={imgStyle}
+          />{" "}
         </a>
         <a href={"https://github.com/jadrian-abramovitch/"}>
           {" "}
-          <img src={github} alt={"GitHub"} style={imgStyle} />
+          <img
+            className="contact-link"
+            src={github}
+            alt={"GitHub"}
+            style={imgStyle}
+          />
         </a>
         <h2>
-          <a href="mailto:jmabramo@uwaterloo.ca" style={linkTextStyle}>
+          <a
+            className="contact-link"
+            href="mailto:jmabramo@uwaterloo.ca"
+            style={linkTextStyle}
+          >
             {" "}
             jmabramo@uwaterloo.ca{" "}
           </a>
