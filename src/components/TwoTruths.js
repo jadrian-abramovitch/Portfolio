@@ -28,10 +28,26 @@ const TwoTruths = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  // const [totalAnswers, setTotalAnswers] = useState(0)
   const [cardSelected, setCardSelected] = useState([false, false, false]);
   const [isTheLie, setIsTheLie] = useState([false, false, false]);
   const [cardStatments, setCardStatements] = useState(["", "", ""]);
+  const [isCurrentSelectionCorrect, setIsCurrentSelectionCorrect] =
+    useState(false);
+  const [message, setMessage] = useState("");
 
+  //controls the success message
+  useEffect(() => {
+    if (cardSelected.includes(true) || correctAnswers > 0) {
+      console.log("if statemenet");
+      const messageText = isCurrentSelectionCorrect
+        ? `Correct! You have guessed ${correctAnswers} lie(s) so far`
+        : "INCORRECT GUESS AGAIN";
+      setMessage(messageText);
+    }
+  }, [cardSelected]);
+
+  //updates card data
   useEffect(() => {
     if (gameOver || !gameStarted) {
       return;
@@ -74,14 +90,6 @@ const TwoTruths = () => {
     return cardStatments[cardId];
   };
 
-  const displayCorrectMessage = () => {
-    alert("Correct!!!");
-  };
-
-  const displayIncorrectMessage = () => {
-    alert("Incorrect!!!");
-  };
-
   const getCardClassName = (cardId) => {
     return cardSelected[cardId] ? "truth-card-selected" : "truth-card";
   };
@@ -93,14 +101,14 @@ const TwoTruths = () => {
 
   const chooseAnswer = (cardId) => {
     if (isTheLie[cardId] === true) {
-      displayCorrectMessage();
-      setCorrectAnswers(correctAnswers + 1);
+      setCorrectAnswers((num) => num + 1);
+      setIsCurrentSelectionCorrect(true);
       cleanCardData();
     } else {
       const newSelectedState = cardSelected.slice();
       newSelectedState[cardId] = true;
       setCardSelected(newSelectedState);
-      displayIncorrectMessage();
+      setIsCurrentSelectionCorrect(false);
     }
   };
 
@@ -120,7 +128,7 @@ const TwoTruths = () => {
         {!gameOver && !gameStarted && (
           <div className="two-truths-start">
             <button
-              className="two-truths-start-button"
+              className="two-truths-start-inner"
               onClick={() => {
                 setGameStarted(true);
               }}
@@ -130,44 +138,49 @@ const TwoTruths = () => {
           </div>
         )}
         {!gameOver && gameStarted && (
-          <div className="grid-container">
-            <div className="grid-item">
-              <div
-                className={getCardClassName(0)}
-                onClick={() => {
-                  chooseAnswer(0);
-                }}
-              >
-                <button className="truth-card-button">
-                  <h3>{getCardData(0)}</h3>
-                </button>
+          <>
+            <div className="grid-container">
+              <div className="grid-item">
+                <div
+                  className={getCardClassName(0)}
+                  onClick={() => {
+                    chooseAnswer(0);
+                  }}
+                >
+                  <button className="truth-card-button">
+                    <h3>{getCardData(0)}</h3>
+                  </button>
+                </div>
+              </div>
+              <div className="grid-item">
+                <div
+                  className={getCardClassName(1)}
+                  onClick={() => {
+                    chooseAnswer(1);
+                  }}
+                >
+                  <button className="truth-card-button">
+                    <h3>{getCardData(1)}</h3>
+                  </button>
+                </div>
+              </div>
+              <div className="grid-item">
+                <div
+                  className={getCardClassName(2)}
+                  onClick={() => {
+                    chooseAnswer(2);
+                  }}
+                >
+                  <button className="truth-card-button">
+                    <h3>{getCardData(2)}</h3>
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="grid-item">
-              <div
-                className={getCardClassName(1)}
-                onClick={() => {
-                  chooseAnswer(1);
-                }}
-              >
-                <button className="truth-card-button">
-                  <h3>{getCardData(1)}</h3>
-                </button>
-              </div>
+            <div className="text-response">
+              <h3>{message}</h3>
             </div>
-            <div className="grid-item">
-              <div
-                className={getCardClassName(2)}
-                onClick={() => {
-                  chooseAnswer(2);
-                }}
-              >
-                <button className="truth-card-button">
-                  <h3>{getCardData(2)}</h3>
-                </button>
-              </div>
-            </div>
-          </div>
+          </>
         )}
       </TextBox>
     </div>

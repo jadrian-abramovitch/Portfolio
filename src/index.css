@@ -17,7 +17,7 @@ Header {
   color: black;
   background-color: #C44B4F;
   position: fixed;
-  width: 98%;
+  width: 99%;
   z-index: 1;
 }
 
@@ -64,19 +64,22 @@ Header {
 }
 
 .two-truths-start {
-  border: 1px solid black;
-  border-radius: 4px;
   width: max-content;
   margin: auto;
-};
-
-.two-truths-start-button {
-  backGround: none;
 }
 
-.two-truths-start-button:hover {
+.two-truths-start-inner {
+  backGround: none;
+  border: 2px solid #C44B4F;
+  border-radius: 4px;
+  color: #C44B4F;
+  text-decoration: none;
+}
+
+.two-truths-start-inner:hover {
   background-color: #C44B4F;
   cursor: pointer;
+  color: white;
 }
 
 .dd-wrapper {
@@ -95,4 +98,8 @@ h2.mobile-drop-menu {
 
 .header-space-holder {
   height: 125px;
+}
+
+.text-response>h3 {
+  color: #C44B4F;
 }
