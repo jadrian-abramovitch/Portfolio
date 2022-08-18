@@ -113,7 +113,7 @@ const TwoTruths = () => {
   };
 
   return (
-    <div id="2truths">
+    <div className="two-truths-container" id="2truths">
       <TextBox>
         <h3>
           {!gameOver &&

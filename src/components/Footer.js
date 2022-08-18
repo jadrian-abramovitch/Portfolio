@@ -10,7 +10,7 @@ const Footer = () => {
   const isDesktop = window.screen.width >= 1000;
 
   return (
-    <div style={{ padding: "10px" }}>
+    <div className="absolute-flex-footer" style={{ padding: "10px" }}>
       <footer style={footerStyle}>
         <div className="grid-container">
           <div className="grid-item">

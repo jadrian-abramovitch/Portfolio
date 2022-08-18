@@ -1,4 +1,5 @@
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -21,6 +22,25 @@ Header {
   z-index: 1;
 }
 
+.page-wrapper{
+  height: 400vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 2 ;
+  overflow: auto;
+}
+
+.absolute-flex-header {
+  flex: 0 1 auto;
+}
+
+.abosulte-flex-footer {
+  flex: 0 1 40px;
+}
+
 .grid-container {
   display: grid;
   grid-auto-flow: column;
@@ -28,10 +48,6 @@ Header {
   grid-auto-flow: column;
   grid-row: 1;
   align-items: center;
-};
-
-.grid-item {
-  background-color: black; 
 }
 
 .truth-card {

@@ -11,7 +11,7 @@ const About = () => {
   };
 
   return (
-    <>
+    <div className="page">
       <TextBox>
         {isDesktop && (
           <div id="about-me" style={aboutTableStyle}>
@@ -34,7 +34,7 @@ const About = () => {
         <h3>{aboutMeDetails()}</h3>
       </TextBox>
       <TwoTruths />
-    </>
+    </div>
   );
 };
 

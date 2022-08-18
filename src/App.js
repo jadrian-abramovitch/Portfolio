@@ -12,13 +12,15 @@ function App() {
     <Router>
       <div className="App">
         <main className="content">
-          <Header />
-          <Route exact path="/">
-            <About />
-            <Projects />
-            <Blog />
-            <Contact />
-          </Route>
+          <div className="page-wrapper">
+            <Header />
+            <Route exact path="/">
+              <About />
+              <Projects />
+              <Blog />
+              <Contact />
+            </Route>
+          </div>
         </main>
         <Footer></Footer>
       </div>

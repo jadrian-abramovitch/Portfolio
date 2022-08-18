@@ -2,7 +2,7 @@ import TextBox from "../components/TextBox";
 
 const Blog = () => {
   return (
-    <div id="blog">
+    <div className="page" id="blog">
       <a
         style={textStyle}
         href="https://jadrianabramovitch.substack.com/p/about-this-blog?r=1ba97k&utm_campaign=post&utm_medium=web"

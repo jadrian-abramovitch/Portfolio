@@ -8,7 +8,7 @@ import NHLGraph from "../static/NHLGraph.png";
 
 const Projects = () => {
   return (
-    <div className="Projects" id="projects">
+    <div className="page" id="projects">
       <Carousel>
         <CarouselItem
           description={project1Text()}

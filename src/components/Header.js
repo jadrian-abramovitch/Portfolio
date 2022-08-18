@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <div style={divStyle}>
+    <div className="absolute-flex-header" style={divStyle}>
       <header style={{ borderRadius: "8px" }}>
         <div className="grid-container">
           <div className="grid-item">
