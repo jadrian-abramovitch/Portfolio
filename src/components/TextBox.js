@@ -10,6 +10,7 @@ const TextBox = ({ children, text, color }) => {
     borderRadius: "8px",
     padding: "5px",
     border: isHover ? "2px solid black" : "0px",
+    flex: "1",
   };
 
   return (

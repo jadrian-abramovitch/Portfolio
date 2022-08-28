@@ -4,17 +4,18 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
-  const location = useLocation();
+  // const location = useLocation();
   const [isHover, setIsHover] = useState(false);
   let history = useHistory();
 
   const getButtonColor = () => {
     if (isHover) {
-      return "#CBCDCB";
+      return backgroundColor;
     }
-    return location.pathname.includes(name.toLowerCase())
-      ? "#CBCDCB"
-      : backgroundColor;
+    return "#CBCDCB";
+    // return location.pathname.includes(name.toLowerCase())
+    //   ? "#CBCDCB"
+    //   : backgroundColor;
   };
 
   const buttonStyle = {
@@ -28,7 +29,7 @@ const NavButton = ({ name, color, link, backgroundColor, scrollTo }) => {
     height: "40px",
   };
   const onClickScroll = () => {
-    history.push("/");
+    // history.push("/");
     document
       .getElementById(scrollTo)
       .scrollIntoView({ behavior: "smooth", block: "center" });

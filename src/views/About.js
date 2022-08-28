@@ -11,14 +11,14 @@ const About = () => {
   };
 
   return (
-    <div className="page">
+    <div id="about-me">
       <TextBox>
         {isDesktop && (
-          <div id="about-me" style={aboutTableStyle}>
-            <div className="grid-item">
+          <div style={aboutTableStyle}>
+            <div>
               <img src={selfie} alt={"React Icon"} style={imgStyle} />
             </div>
-            <div className="grid-item">
+            <div>
               <h3>{aboutMe()}</h3>
             </div>
           </div>
@@ -39,12 +39,7 @@ const About = () => {
 };
 
 const aboutTableStyle = {
-  display: "grid",
-  gridAutoFlow: "column",
-  gridRow: "1",
-  alignItems: "center",
-  gridTemplateColumns: "1fr 3fr",
-  padding: "20px",
+  padding: "2px",
 };
 
 export default About;

@@ -20,26 +20,35 @@ Header {
   position: fixed;
   width: 99%;
   z-index: 1;
+  height: 14vh;
 }
 
-.page-wrapper{
+/* .site-wrapper{
   height: 400vh;
   display: flex;
   flex-direction: column;
-}
+} */
 
-.page {
-  flex: 2 ;
+/* .page {
+  flex: 1 ;
   overflow: auto;
+} */
+
+.page-wrapper {
+  height: 86vh;
+  display: flex;
+  flex-flow: column;
 }
 
-.absolute-flex-header {
-  flex: 0 1 auto;
+.two-truths-container {
+  flex: 2;
 }
 
-.abosulte-flex-footer {
-  flex: 0 1 40px;
-}
+
+/* .absoulte-flex-footer {
+  flex: 2 1 40px;
+  flex: 2;
+} */
 
 .grid-container {
   display: grid;

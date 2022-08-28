@@ -14,7 +14,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="page" id="contact">
+    <div id="contact">
       <TextBox>
         <h1>Contact</h1>
         <a href={"https://www.linkedin.com/in/jadrian-abramovitch-62bba5180"}>

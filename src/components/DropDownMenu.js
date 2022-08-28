@@ -21,7 +21,6 @@ const DropDownMenu = ({ labels, scrollTos }) => {
   let history = useHistory();
 
   const onClickScroll = (scrollTo) => {
-    history.push("/");
     document
       .getElementById(scrollTo)
       .scrollIntoView({ behavior: "smooth", block: "center" });

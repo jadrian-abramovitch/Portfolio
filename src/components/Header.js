@@ -5,9 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const isDesktop = window.screen.width >= 1000;
-  let history = useHistory();
   const onClickScroll = () => {
-    history.push("/");
     document
       .getElementById("header-space-holder")
       .scrollIntoView({ behavior: "smooth", block: "center" });
@@ -21,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute-flex-header" style={divStyle}>
+    <div style={divStyle}>
       <header style={{ borderRadius: "8px" }}>
         <div className="grid-container">
           <div className="grid-item">
@@ -79,8 +77,9 @@ const divStyle = {
 };
 
 const logoStyle = {
-  width: "130px",
-  height: "125px",
+  width: "13vh",
+  // height: "125px",
+  height: "13vh",
 };
 
 export default Header;
